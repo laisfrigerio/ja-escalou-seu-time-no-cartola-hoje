@@ -21,7 +21,7 @@ function matchYear (yearCurrentDate, closingYear) {
     return yearCurrentDate === closingYear
 }
 
-function isTheBallMarketOpen (status) {
+function isTheMarketOpen (status) {
     return status === 1
 }
 
@@ -43,7 +43,7 @@ function isClosingDateEqualToCurrentDate (payload, currentDate) {
 }
 
 function canSendMessage (payload, currentDate) {
-    return isTheBallMarketOpen(payload.status) 
+    return isTheMarketOpen(payload.status) 
             && isClosingDateEqualToCurrentDate(payload, currentDate)
             && (isLeftHoursToCloseMarket(payload, currentDate, 12)
                 || isLeftHoursToCloseMarket(payload, currentDate, 6)
@@ -53,13 +53,3 @@ function canSendMessage (payload, currentDate) {
 
 module.exports.canSendMessage = canSendMessage
 module.exports.isClosingDateEqualToCurrentDate = isClosingDateEqualToCurrentDate
-
-
-/**
- * Bot vai rodar a cada 5 minutos
- * 
- * 1 hour or more to close
- *   - 
- * 
- * less than 1 hour to closing
- */

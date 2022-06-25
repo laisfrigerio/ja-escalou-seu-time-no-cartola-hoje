@@ -1,6 +1,6 @@
 # E aí, cartoleiro, Já escalou seu time no Cartola hoje?
 
-Não deixa para última hora como eu
+Não deixa para última hora! ~~como eu~~
 
 ## O que é o Cartola?
 

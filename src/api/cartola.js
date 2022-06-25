@@ -5,6 +5,7 @@ function adapterMarketStatus (payload) {
     const { dia, mes, ano, hora, minuto, timestamp } = payload.fechamento
 
     return {
+        status: payload.status_mercado,
         closing: {
             day: dia,
             month: mes,

@@ -23,6 +23,7 @@ describe('get "mercado status"', () => {
 
         expect(axios.get).toHaveBeenCalledWith(`${BASE_URL}/mercado/status`)
         expect(result).toEqual({
+            status: 1,
             closing: {
                 day: 25,
                 month: 6,

@@ -26,6 +26,16 @@ function isClosingDateEqualsToCurrentDate (payload, currentDate) {
             && matchYear(yearCurrentDate, year)
 }
 
+function isBallMarketOpen (status) {
+    return status === 1
+}
+
+function hasToSendMessage (payload, currentDate) {
+    return isBallMarketOpen(payload.status) 
+            && isClosingDateEqualsToCurrentDate(payload, currentDate)
+}
+
+module.exports.hasToSendMessage = hasToSendMessage
 module.exports.isClosingDateEqualsToCurrentDate = isClosingDateEqualsToCurrentDate
 
 

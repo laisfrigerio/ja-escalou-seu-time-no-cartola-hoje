@@ -32,4 +32,16 @@ describe('is closing date equals to current date', () => {
         const currentDate = moment('2022-06-25')
         expect(isClosingDateEqualsToCurrentDate(cartolaResponse, currentDate)).toBe(true)
     })
+
+    it('should return true when current date is equals to closing day (day less than 10)', () => {
+        const currentDate = moment('2022-06-03')
+        const response = {
+            ...cartolaResponse,
+            closing: {
+                ...cartolaResponse.closing,
+                day: 3
+            }
+        }
+        expect(isClosingDateEqualsToCurrentDate(response, currentDate)).toBe(true)
+    })
 })

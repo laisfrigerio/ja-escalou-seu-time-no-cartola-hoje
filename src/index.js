@@ -1,6 +1,12 @@
+const moment = require('moment')
+
 function leadingZeros (number, targetLength) {
     const str = String(number)
     return str.padStart(targetLength, 0)
+}
+
+function addingDate (date, amount, key) {
+    return moment(date).add(amount, key)
 }
 
 function matchDay (dayCurrentDate, closingDay) {
@@ -15,6 +21,16 @@ function matchYear (yearCurrentDate, closingYear) {
     return yearCurrentDate === closingYear
 }
 
+function isTheBallMarketOpen (status) {
+    return status === 1
+}
+
+function isLeftHoursToCloseMarket (payload, currentDate, target) {
+    const { hour } = payload.closing
+    return addingDate(currentDate, target, 'h').hour() === hour
+            && currentDate.minute() === 0
+}
+
 function isClosingDateEqualToCurrentDate (payload, currentDate) {
     const { day, month, year } = payload.closing
     const dayCurrentDate = currentDate.date()
@@ -26,16 +42,16 @@ function isClosingDateEqualToCurrentDate (payload, currentDate) {
             && matchYear(yearCurrentDate, year)
 }
 
-function isTheBallMarketOpen (status) {
-    return status === 1
-}
-
-function hasToSendMessage (payload, currentDate) {
+function canSendMessage (payload, currentDate) {
     return isTheBallMarketOpen(payload.status) 
             && isClosingDateEqualToCurrentDate(payload, currentDate)
+            && (isLeftHoursToCloseMarket(payload, currentDate, 12)
+                || isLeftHoursToCloseMarket(payload, currentDate, 6)
+                || isLeftHoursToCloseMarket(payload, currentDate, 3)
+                || isLeftHoursToCloseMarket(payload, currentDate, 1))
 }
 
-module.exports.hasToSendMessage = hasToSendMessage
+module.exports.canSendMessage = canSendMessage
 module.exports.isClosingDateEqualToCurrentDate = isClosingDateEqualToCurrentDate
 
 

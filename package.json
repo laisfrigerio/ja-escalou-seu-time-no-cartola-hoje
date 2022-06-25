@@ -4,7 +4,8 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "test:coverage": "jest --coverage"
   },
   "keywords": [],
   "author": "Lais Frigério",

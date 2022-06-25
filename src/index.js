@@ -1,5 +1,3 @@
-const { fetchMarketStatus } = require('./api/cartola')
-
 function isClosingDateEqualsToCurrentDate (payload, currentDate) {
     const { day, month, year } = payload.closing
     const dayCurrentDate = currentDate.date()
@@ -10,7 +8,5 @@ function isClosingDateEqualsToCurrentDate (payload, currentDate) {
             && monthCurrentDate === month
             && yearCurrentDate === year
 }
-
-fetchMarketStatus()
 
 module.exports.isClosingDateEqualsToCurrentDate = isClosingDateEqualsToCurrentDate

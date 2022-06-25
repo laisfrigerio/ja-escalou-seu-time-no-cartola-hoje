@@ -15,7 +15,7 @@ function matchYear (yearCurrentDate, closingYear) {
     return yearCurrentDate === closingYear
 }
 
-function isClosingDateEqualsToCurrentDate (payload, currentDate) {
+function isClosingDateEqualToCurrentDate (payload, currentDate) {
     const { day, month, year } = payload.closing
     const dayCurrentDate = currentDate.date()
     const monthCurrentDate = currentDate.month() + 1
@@ -26,17 +26,17 @@ function isClosingDateEqualsToCurrentDate (payload, currentDate) {
             && matchYear(yearCurrentDate, year)
 }
 
-function isBallMarketOpen (status) {
+function isTheBallMarketOpen (status) {
     return status === 1
 }
 
 function hasToSendMessage (payload, currentDate) {
-    return isBallMarketOpen(payload.status) 
-            && isClosingDateEqualsToCurrentDate(payload, currentDate)
+    return isTheBallMarketOpen(payload.status) 
+            && isClosingDateEqualToCurrentDate(payload, currentDate)
 }
 
 module.exports.hasToSendMessage = hasToSendMessage
-module.exports.isClosingDateEqualsToCurrentDate = isClosingDateEqualsToCurrentDate
+module.exports.isClosingDateEqualToCurrentDate = isClosingDateEqualToCurrentDate
 
 
 /**

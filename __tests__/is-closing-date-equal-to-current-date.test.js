@@ -1,5 +1,5 @@
 const moment = require('moment')
-const { isClosingDateEqualsToCurrentDate } = require('../src/index')
+const { isClosingDateEqualToCurrentDate } = require('../src/index')
 
 describe('is closing date equals to current date', () => {
     const cartolaResponse = {
@@ -15,22 +15,22 @@ describe('is closing date equals to current date', () => {
 
     it('should return false when current day is not closing day', () => {
         const currentDate = moment('2022-06-24')
-        expect(isClosingDateEqualsToCurrentDate(cartolaResponse, currentDate)).toBe(false)
+        expect(isClosingDateEqualToCurrentDate(cartolaResponse, currentDate)).toBe(false)
     })
 
     it('should return false when current month is not closing month', () => {
         const currentDate = moment('2022-05-25')
-        expect(isClosingDateEqualsToCurrentDate(cartolaResponse, currentDate)).toBe(false)
+        expect(isClosingDateEqualToCurrentDate(cartolaResponse, currentDate)).toBe(false)
     })
     
     it('should return false when current year is not closing year', () => {
         const currentDate = moment('2021-06-25')
-        expect(isClosingDateEqualsToCurrentDate(cartolaResponse, currentDate)).toBe(false)
+        expect(isClosingDateEqualToCurrentDate(cartolaResponse, currentDate)).toBe(false)
     })
 
     it('should return true when current date is equals to closing date', () => {
         const currentDate = moment('2022-06-25')
-        expect(isClosingDateEqualsToCurrentDate(cartolaResponse, currentDate)).toBe(true)
+        expect(isClosingDateEqualToCurrentDate(cartolaResponse, currentDate)).toBe(true)
     })
 
     it('should return true when current date is equals to closing day (day less than 10)', () => {
@@ -42,6 +42,6 @@ describe('is closing date equals to current date', () => {
                 day: 3
             }
         }
-        expect(isClosingDateEqualsToCurrentDate(response, currentDate)).toBe(true)
+        expect(isClosingDateEqualToCurrentDate(response, currentDate)).toBe(true)
     })
 })

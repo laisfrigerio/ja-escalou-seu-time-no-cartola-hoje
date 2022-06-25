@@ -1,3 +1,4 @@
+const moment = require('moment')
 const { isClosingDateEqualsToCurrentDate } = require('../src/index')
 
 describe('is closing date equals to current date', () => {
@@ -13,22 +14,22 @@ describe('is closing date equals to current date', () => {
     }
 
     it('should return false when current day is not closing day', () => {
-        const currentDate = new Date('2022 6 24 15:15:00')
+        const currentDate = moment('2022-06-24')
         expect(isClosingDateEqualsToCurrentDate(cartolaResponse, currentDate)).toBe(false)
     })
 
     it('should return false when current month is not closing month', () => {
-        const currentDate = new Date('2022 5 25 15:15:00')
+        const currentDate = moment('2022-05-25')
         expect(isClosingDateEqualsToCurrentDate(cartolaResponse, currentDate)).toBe(false)
     })
     
     it('should return false when current year is not closing year', () => {
-        const currentDate = new Date('2021 5 25 15:15:00')
+        const currentDate = moment('2021-06-25')
         expect(isClosingDateEqualsToCurrentDate(cartolaResponse, currentDate)).toBe(false)
     })
 
     it('should return true when current date is equals to closing date', () => {
-        const currentDate = new Date('2022 6 25 15:15:00')
+        const currentDate = moment('2022-06-25')
         expect(isClosingDateEqualsToCurrentDate(cartolaResponse, currentDate)).toBe(true)
     })
 })

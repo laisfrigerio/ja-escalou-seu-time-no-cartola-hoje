@@ -45,11 +45,25 @@ Inicialmente a ideia é:
 
 - NodeJS: `v16.15.0`
 - npm: `8.5.5`
-- Jest to automated tests (100% of coverage): `^28.1.1`
+- Jest para os testes de unidade e integração (100% of coverage): `^28.1.1`
 - API Cartola
 - Integração com Telegram
 
 ## Run
+
+Antes de rodar o project, você deve:
+
+- Criar seu bot no telegram;
+- Criar um grupo no telegram;
+- Fazer o link do bot com o grupo criado;
+- Pegar o valor do `chat_id` do grupo criado;
+
+E, por fim, você deve:
+
+- Criar um arquivo chamado `.env` com base no `.env.example`; e
+- Preencha as variáveis ​​de ambiente com as suas credenciais do telegram;
+
+E finalmente, execute:
 
 ```
     npm install

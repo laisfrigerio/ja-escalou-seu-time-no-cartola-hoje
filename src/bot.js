@@ -43,5 +43,6 @@ function canSendMessage (payload, currentDate) {
 
 module.exports = {
   canSendMessage,
+  differenceInHour,
   differenceInMinute
 }

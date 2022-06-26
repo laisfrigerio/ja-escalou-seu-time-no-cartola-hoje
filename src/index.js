@@ -1,55 +1,45 @@
-const moment = require('moment')
-
-function leadingZeros (number, targetLength) {
-    const str = String(number)
-    return str.padStart(targetLength, 0)
-}
-
-function addingDate (date, amount, key) {
-    return moment(date).add(amount, key)
-}
-
-function matchDay (dayCurrentDate, closingDay) {
-    return leadingZeros(dayCurrentDate, 2) === leadingZeros(closingDay, 2)
-}
-
-function matchMonth (monthCurrentDate, closingMonth) {
-    return leadingZeros(monthCurrentDate, 2) === leadingZeros(closingMonth, 2)
-}
-
-function matchYear (yearCurrentDate, closingYear) {
-    return yearCurrentDate === closingYear
-}
+const { isModOf, sameOf } = require('./helpers/math')
+const { difference } = require('./helpers/date')
 
 function isTheMarketOpen (status) {
     return status === 1
 }
 
 function isLeftHoursToCloseMarket (payload, currentDate, target) {
-    const { hour } = payload.closing
-    return addingDate(currentDate, target, 'h').hour() === hour
-            && currentDate.minute() === 0
+    const diffMinute = difference(payload, currentDate, 'm')
+    const diffHour = difference(payload, currentDate, 'h')
+
+    return sameOf(diffHour, target) && isModOf(diffMinute, 60, 0)
 }
 
-function isClosingDateEqualToCurrentDate (payload, currentDate) {
-    const { day, month, year } = payload.closing
-    const dayCurrentDate = currentDate.date()
-    const monthCurrentDate = currentDate.month() + 1
-    const yearCurrentDate = currentDate.year()
+function differenceInMinutes (payload, currentDate, target) {
+    const diffMinute = difference(payload, currentDate, 'm')
+    return sameOf(diffMinute, target)
+}
 
-    return matchDay(dayCurrentDate, day)
-            && matchMonth(monthCurrentDate, month)
-            && matchYear(yearCurrentDate, year)
+function isExactHourToSendMessage (payload, currentDate) {
+    return isLeftHoursToCloseMarket(payload, currentDate, 12)
+            || isLeftHoursToCloseMarket(payload, currentDate, 6)
+            || isLeftHoursToCloseMarket(payload, currentDate, 3)
+            || isLeftHoursToCloseMarket(payload, currentDate, 1)
+}
+
+function isExactMinuteToSendMessage (payload, currentDate) {
+    return differenceInMinutes(payload, currentDate, 30)
+            || differenceInMinutes(payload, currentDate, 15)
+}
+
+function isExactPeriodToSendMessage (payload, currentDate) {
+    return isExactHourToSendMessage(payload, currentDate)
+            || isExactMinuteToSendMessage(payload, currentDate)
 }
 
 function canSendMessage (payload, currentDate) {
     return isTheMarketOpen(payload.status) 
-            && isClosingDateEqualToCurrentDate(payload, currentDate)
-            && (isLeftHoursToCloseMarket(payload, currentDate, 12)
-                || isLeftHoursToCloseMarket(payload, currentDate, 6)
-                || isLeftHoursToCloseMarket(payload, currentDate, 3)
-                || isLeftHoursToCloseMarket(payload, currentDate, 1))
+            && isExactPeriodToSendMessage(payload, currentDate)
 }
 
-module.exports.canSendMessage = canSendMessage
-module.exports.isClosingDateEqualToCurrentDate = isClosingDateEqualToCurrentDate
+module.exports = {
+    canSendMessage,
+    differenceInMinutes
+}

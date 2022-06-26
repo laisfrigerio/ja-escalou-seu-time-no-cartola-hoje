@@ -1,7 +1,7 @@
 const moment = require('moment')
 const { canSendMessage } = require('../src/index')
 
-describe('has to send message?', () => {
+describe('has to send message (closing at evening)', () => {
     const payload = {
         status: 1,
         closing: {
@@ -63,23 +63,101 @@ describe('has to send message?', () => {
         expect(canSendMessage(payload, currentDate)).toBe(false)
     })
 
-    it('should return true when thre are 12 hours left to close the market', async () => {
+    it('should return true when there are 12 hours left to close the market', async () => {
         const currentDate = moment('2022-06-25 04:00')
         expect(canSendMessage(payload, currentDate)).toBe(true)
     })
 
-    it('should return true when thre are 6 hours left to close the market', async () => {
+    it('should return true when there are 6 hours left to close the market', async () => {
         const currentDate = moment('2022-06-25 10:00')
         expect(canSendMessage(payload, currentDate)).toBe(true)
     })
 
-    it('should return true when thre are 3 hours left to close the market', async () => {
+    it('should return true when there are 3 hours left to close the market', async () => {
         const currentDate = moment('2022-06-25 13:00')
         expect(canSendMessage(payload, currentDate)).toBe(true)
     })
 
-    it('should return true when thre is 1 hour left to close the market', async () => {
+    it('should return true when there is 1 hour left to close the market', async () => {
         const currentDate = moment('2022-06-25 15:00')
+        expect(canSendMessage(payload, currentDate)).toBe(true)
+    })
+
+    it('should return true when the market has less than 30 minutes to close', async () => {
+        const currentDate = moment('2022-06-25 15:30')
+        expect(canSendMessage(payload, currentDate)).toBe(true)
+    })
+
+    it('should return true when the market has less than 15 minutes to close', async () => {
+        const currentDate = moment('2022-06-25 15:45')
+        expect(canSendMessage(payload, currentDate)).toBe(true)
+    })
+})
+
+describe('has to send message (closing at morning)', () => {
+    const payload = {
+        status: 1,
+        closing: {
+            day: 25,
+            month: 6,
+            year: 2022,
+            hour: 10,
+            minute: 30
+        }
+    }
+
+    it('should return false when more than 12 hours left to close the market', async () => {
+        const currentDate = moment('2022-06-24 21:30')
+        expect(canSendMessage(payload, currentDate)).toBe(false)
+    })
+
+    it('should return false when more than 7 hours left to close the market', async () => {
+        const currentDate = moment('2022-06-25 03:12')
+        expect(canSendMessage(payload, currentDate)).toBe(false)
+    })
+
+    it('should return false when more than 5 hours left to close the market', async () => {
+        const currentDate = moment('2022-06-25 05:02')
+        expect(canSendMessage(payload, currentDate)).toBe(false)
+    })
+
+    it('should return false when more than 2 hours left to close the market', async () => {
+        const currentDate = moment('2022-06-25 08:26')
+        expect(canSendMessage(payload, currentDate)).toBe(false)
+    })
+    
+    it('should return false when less than 15 minutes left to close the market', async () => {
+        const currentDate = moment('2022-06-25 10:21')
+        expect(canSendMessage(payload, currentDate)).toBe(false)
+    })
+
+    it('should return false when less than 45 minutes left to close the market', async () => {
+        const currentDate = moment('2022-06-25 09:38')
+        expect(canSendMessage(payload, currentDate)).toBe(false)
+    })
+
+    it('should return true when there are 12 hours left to close the market', async () => {
+        const currentDate = moment('2022-06-24 22:30')
+        expect(canSendMessage(payload, currentDate)).toBe(true)
+    })
+
+    it('should return true when there are 6 hours left to close the market', async () => {
+        const currentDate = moment('2022-06-25 04:30')
+        expect(canSendMessage(payload, currentDate)).toBe(true)
+    })
+
+    it('should return true when there are 3 hours left to close the market', async () => {
+        const currentDate = moment('2022-06-25 07:30')
+        expect(canSendMessage(payload, currentDate)).toBe(true)
+    })
+
+    it('should return true when the market has less than 30 minutes to close', async () => {
+        const currentDate = moment('2022-06-25 10:00')
+        expect(canSendMessage(payload, currentDate)).toBe(true)
+    })
+
+    it('should return true when the market has less than 15 minutes to close', async () => {
+        const currentDate = moment('2022-06-25 10:15')
         expect(canSendMessage(payload, currentDate)).toBe(true)
     })
 })

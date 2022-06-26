@@ -5,7 +5,7 @@ const BASE_URL = process.env.CARTOLA_API
 dotenv.config()
 
 function adapterMarketStatus (payload) {
-  const { dia, mes, ano, hora, minuto, timestamp } = payload.fechamento
+  const { dia, mes, ano, hora, minuto } = payload.fechamento
 
   return {
     status: payload.status_mercado,
@@ -14,8 +14,7 @@ function adapterMarketStatus (payload) {
       month: mes,
       year: ano,
       hour: hora,
-      minute: minuto,
-      timestamp
+      minute: minuto
     }
   }
 }

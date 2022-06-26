@@ -12,8 +12,7 @@ describe('get "mercado status"', () => {
         mes: 6,
         ano: 2022,
         hora: 16,
-        minuto: 0,
-        timestamp: 1656183600
+        minuto: 0
       }
     }
 
@@ -29,8 +28,7 @@ describe('get "mercado status"', () => {
         month: 6,
         year: 2022,
         hour: 16,
-        minute: 0,
-        timestamp: 1656183600
+        minute: 0
       }
     })
   })

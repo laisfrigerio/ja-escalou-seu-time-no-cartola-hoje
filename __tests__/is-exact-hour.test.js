@@ -1,9 +1,9 @@
 const moment = require('moment')
 const { isExactHour } = require('../src/bot')
 const {
-    marketStatusCloseAfternoon,
-    marketStatusCloseEvening,
-    marketStatusCloseMorning
+  marketStatusCloseAfternoon,
+  marketStatusCloseEvening,
+  marketStatusCloseMorning
 } = require('../__mocks__/mock-cartola')
 
 describe('is one of those exact hour: 12, 6, 3 or 1 before closing the market', () => {

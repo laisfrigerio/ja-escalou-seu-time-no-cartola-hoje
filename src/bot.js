@@ -47,5 +47,6 @@ module.exports = {
   differenceInHour,
   differenceInMinute,
   isExactHour,
+  isExactMinute,
   isTheMarketOpen
 }

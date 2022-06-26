@@ -4,6 +4,7 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
+    "start": "node ./src/index.js",
     "test": "jest",
     "test:coverage": "jest --coverage"
   },
@@ -11,7 +12,6 @@
   "author": "Lais Frigério",
   "license": "MIT",
   "devDependencies": {
-    "start": "node ./src/index.js",
     "jest": "^28.1.1"
   },
   "dependencies": {

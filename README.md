@@ -85,6 +85,15 @@ E finalmente, execute:
     npm run test:coverage
 ```
 
+## Links de referência:
+
+- [Telegram BOT API](https://core.telegram.org/bots/api)
+- [Telegram BOT API: Available methods](https://core.telegram.org/bots/api#available-methods)
+- [Get Telegram Chat ID](https://sean-bradley.medium.com/get-telegram-chat-id-80b575520659)
+- [How to obtain the Chat ID](https://stackoverflow.com/questions/33858927/how-to-obtain-the-chat-id-of-a-private-telegram-channel)
+- [Making a Telegram BOT](https://www.sohamkamani.com/blog/2016/09/21/making-a-telegram-bot/#:~:text=Go%20to%20the%20telegram%20app%20on%20your%20phone%20and%E2%80%A6&text=Click%20on%20or%20type%20%2Fnewbot,to%20be%20a%20unique%20name.)
+- [How to mock axios requests in jest](https://vhudyma-blog.eu/3-ways-to-mock-axios-in-jest/)
+
 ## 👩 Author
 
 | [<img src="https://avatars.githubusercontent.com/u/20709086?v=4" width="100px;" alt="Lais Frigério"/><br /><sub><b>@laisfrigerio</b></sub>](https://github.com/laisfrigerio)<br /> |

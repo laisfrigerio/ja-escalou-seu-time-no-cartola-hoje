@@ -2,6 +2,8 @@
 
 Não deixa para última hora! ~~como eu~~
 
+[Entre aqui](https://t.me/+n8f3TlxXJ04wMThh) no grupo do Telegram agora mesmo ;)
+
 <p align="center">
   <a><img src="./images/cartola-logo.png" alt="Logo do fantasy grame escrito 'Cartola' em texto branco sobre um fundo laranja" title="Logo do fantasy grame escrito 'Cartola' em texto branco sobre um fundo laranja"></a>
 </p>

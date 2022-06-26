@@ -34,8 +34,8 @@ describe('get "mercado status"', () => {
   })
 
   it('should return an error on get the information', async () => {
-    const message = "Network Error"
-    const mockResponse = new Error(message)
+    const errorMessage = "Network Error"
+    const mockResponse = new Error(errorMessage)
 
     axios.get.mockRejectedValueOnce(mockResponse)
 

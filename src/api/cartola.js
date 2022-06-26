@@ -1,8 +1,8 @@
 const axios = require('axios')
 const dotenv = require('dotenv')
-const BASE_URL = process.env.CARTOLA_API
-
 dotenv.config()
+
+const BASE_URL = process.env.CARTOLA_API
 
 function adapterMarketStatus (payload) {
   const { dia, mes, ano, hora, minuto } = payload.fechamento

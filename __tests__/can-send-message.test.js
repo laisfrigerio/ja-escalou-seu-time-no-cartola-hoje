@@ -1,5 +1,5 @@
 const moment = require('moment')
-const { canSendMessage } = require('../src/index')
+const { canSendMessage } = require('../src/bot')
 
 describe('has to send message (closing at evening)', () => {
   const payload = {

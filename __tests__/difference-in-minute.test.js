@@ -1,5 +1,5 @@
 const moment = require('moment')
-const { differenceInMinute } = require('../src/index')
+const { differenceInMinute } = require('../src/bot')
 
 describe('difference in minutes equal to target', () => {
   const payload = {

@@ -1,17 +1,9 @@
 const moment = require('moment')
 const { differenceInMinute } = require('../src/bot')
+const { marketStatusCloseEvening } = require('../__mocks__/mock-cartola')
 
 describe('difference in minutes equal to target', () => {
-  const payload = {
-    status: 1,
-    closing: {
-      day: 4,
-      month: 7,
-      year: 2022,
-      hour: 18,
-      minute: 0
-    }
-  }
+  const payload = marketStatusCloseEvening
 
   it('should return false because the diff is not equals to 56', async () => {
     const currentDate = moment('2022-07-04 17:05')

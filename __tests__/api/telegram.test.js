@@ -1,5 +1,11 @@
 const axios = require('axios')
-const { TELEGRAM_API, TELEGRAM_CHAT_ID, TELEGRAM_MESSAGE, TELEGRAM_TOKEN, sendMessage } = require('../../src/api/telegram')
+const {
+    TELEGRAM_API,
+    TELEGRAM_CHAT_ID,
+    TELEGRAM_MESSAGE,
+    TELEGRAM_TOKEN,
+    sendMessage
+} = require('../../src/api/telegram')
 
 jest.mock('axios')
 

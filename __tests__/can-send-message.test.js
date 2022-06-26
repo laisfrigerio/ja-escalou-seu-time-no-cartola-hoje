@@ -1,21 +1,17 @@
 const moment = require('moment')
 const { canSendMessage } = require('../src/bot')
+const { MARKET_STATUS } = require('../src/const')
+const { 
+  marketStatusCloseAfternoon,
+  marketStatusCloseMorning
+} = require('../__mocks__/mock-cartola')
 
 describe('has to send message (closing at evening)', () => {
-  const payload = {
-    status: 1,
-    closing: {
-      day: 25,
-      month: 6,
-      year: 2022,
-      hour: 16,
-      minute: 0
-    }
-  }
+  const payload = marketStatusCloseAfternoon
 
   it('should return false when the ball market is closed', async () => {
     const currentDate = moment('2022-06-24')
-    expect(canSendMessage({ ...payload, status: 2 }, currentDate)).toBe(false)
+    expect(canSendMessage({ ...payload, status: MARKET_STATUS.close }, currentDate)).toBe(false)
   })
 
   it('should return false because closing date is not equal to the current date even though the ball market is open', async () => {
@@ -95,16 +91,7 @@ describe('has to send message (closing at evening)', () => {
 })
 
 describe('has to send message (closing at morning)', () => {
-  const payload = {
-    status: 1,
-    closing: {
-      day: 25,
-      month: 6,
-      year: 2022,
-      hour: 10,
-      minute: 30
-    }
-  }
+  const payload = marketStatusCloseMorning
 
   it('should return false when more than 12 hours left to close the market', async () => {
     const currentDate = moment('2022-06-24 21:30')

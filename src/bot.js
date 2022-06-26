@@ -3,6 +3,7 @@ dotenv.config()
 
 const { isModOf, sameOf } = require('./helpers/math')
 const { difference } = require('./helpers/date')
+const { MARKET_STATUS } = require('./const')
 
 function differenceInHour (payload, currentDate, target) {
   const diffMinute = difference(payload, currentDate, 'm')
@@ -16,7 +17,7 @@ function differenceInMinute (payload, currentDate, target) {
 }
 
 function isTheMarketOpen (status) {
-  return status === 1
+  return status === MARKET_STATUS.open
 }
 
 function isExactHour (payload, currentDate) {
@@ -44,5 +45,6 @@ function canSendMessage (payload, currentDate) {
 module.exports = {
   canSendMessage,
   differenceInHour,
-  differenceInMinute
+  differenceInMinute,
+  isTheMarketOpen
 }

@@ -1,7 +1,8 @@
 const axios = require('axios')
 const { BASE_URL, fetchMarketStatus } = require('../../src/api/cartola')
+const { marketStatusCloseAfternoon } = require('../../__mocks__/mock-cartola')
 
-jest.mock("axios")
+jest.mock('axios')
 
 describe('get "mercado status"', () => {
   it('should return status and datetime limit', async () => {
@@ -21,16 +22,7 @@ describe('get "mercado status"', () => {
     const result = await fetchMarketStatus()
 
     expect(axios.get).toHaveBeenCalledWith(`${BASE_URL}/mercado/status`)
-    expect(result).toEqual({
-      status: 1,
-      closing: {
-        day: 25,
-        month: 6,
-        year: 2022,
-        hour: 16,
-        minute: 0
-      }
-    })
+    expect(result).toEqual(marketStatusCloseAfternoon)
   })
 
   it('should return an error on get the information', async () => {

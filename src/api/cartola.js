@@ -1,5 +1,8 @@
 const axios = require('axios')
-const BASE_URL = 'https://api.cartola.globo.com'
+const dotenv = require('dotenv')
+const BASE_URL = process.env.CARTOLA_API
+
+dotenv.config()
 
 function adapterMarketStatus (payload) {
   const { dia, mes, ano, hora, minuto, timestamp } = payload.fechamento

@@ -46,5 +46,6 @@ module.exports = {
   canSendMessage,
   differenceInHour,
   differenceInMinute,
+  isExactHour,
   isTheMarketOpen
 }

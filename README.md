@@ -6,6 +6,14 @@ Não deixa para última hora! ~~como eu~~
   <a><img src="./images/cartola-logo.png" alt="Logo do fantasy grame escrito 'Cartola' em texto branco sobre um fundo laranja" title="Logo do fantasy grame escrito 'Cartola' em texto branco sobre um fundo laranja"></a>
 </p>
 
+<p align="center">
+  <a><img src="./images/smart-watch-notification.jpeg" alt="Notificação da mensagem do bot no grupo do telegram sendo exibida no smart watch mi band 6" title="Notificação da mensagem do bot no grupo do telegram sendo exibida no smart watch mi band 6"></a>
+</p>
+
+<p align="center">
+  <a><img src="./images/mobile-notification.jpeg" alt="Notificação na tela de bloqueio do smartphone" title="Notificação na tela de bloqueio do smartphone"></a>
+</p>
+
 ## O que é o Cartola?
 
 É uma fantasy game desenvolvido pelo time tech da Globo.

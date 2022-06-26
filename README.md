@@ -1,4 +1,4 @@
-# E aí, cartoleiro, já escalou seu time no Cartola hoje?
+# :copyright: E aí, cartoleiro, já escalou seu time no Cartola hoje?
 
 Não deixa para última hora! ~~como eu~~
 
@@ -24,7 +24,7 @@ Acessar uma API pública do cartola, coletar informação, como status do mercad
 
 ## Motivação
 
-Este projeto surgiu de uma necessidade pessoal: mesmo recebendo e-mail para escalar meu time na Rodada, eventual eu acabo esquecendo.
+Este projeto surgiu de uma necessidade pessoal: mesmo recebendo e-mail para escalar meu time na Rodada, eventualmente eu acabo esquecendo.
 
 A ideia é criar um BOT para me lembrar e não mais esquecer de escalar meu time no Cartola.
 
@@ -40,6 +40,28 @@ Inicialmente a ideia é:
     - 1 horas antes do fechamento;
     - 30 minutos antes do fechamento; e
     - 15 minutos antes do fechamento;
+
+## 🛠️ Stack
+
+- NodeJS: `v16.15.0`
+- npm: `8.5.5`
+- Jest to automated tests (100% of coverage): `^28.1.1`
+- API Cartola
+- Integração com Telegram
+
+## Run
+
+```
+    npm install
+    npm start
+```
+
+## Run test
+
+```
+    npm run test
+    npm run test:coverage
+```
 
 ## 👩 Author
 

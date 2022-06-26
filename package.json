@@ -11,6 +11,7 @@
   "author": "Lais Frigério",
   "license": "MIT",
   "devDependencies": {
+    "start": "node ./src/index.js",
     "jest": "^28.1.1"
   },
   "dependencies": {

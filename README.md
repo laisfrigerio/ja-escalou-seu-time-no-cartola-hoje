@@ -1,5 +1,9 @@
 # E aí, cartoleiro, Já escalou seu time no Cartola hoje?
 
+<p align="center">
+  <a><img src="./images/cartola-logo.png" alt="Logo do fantasy grame escrito 'Cartola' em texto branco sobre um fundo laranja" title="Logo do fantasy grame escrito 'Cartola' em texto branco sobre um fundo laranja"></a>
+</p>
+
 Não deixa para última hora! ~~como eu~~
 
 ## O que é o Cartola?

@@ -44,6 +44,8 @@ Inicialmente a ideia é:
 
 - Enviar lembretes apenas no dia de fechamento do mercado;
 - Períodos de envio:
+    - 48 horas antes do fechamento;
+    - 24 horas antes do fechamento;
     - 12 horas antes do fechamento;
     - 6 horas antes do fechamento;
     - 3 horas antes do fechamento;

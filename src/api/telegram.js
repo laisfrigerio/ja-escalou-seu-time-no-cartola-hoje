@@ -5,6 +5,7 @@ dotenv.config()
 const { TELEGRAM_API, TELEGRAM_CHAT_ID, TELEGRAM_MESSAGE, TELEGRAM_TOKEN } = process.env
 
 async function sendMessage () {
+  console.log("mensagem encaminhada")
   const api = `${TELEGRAM_API}/bot${TELEGRAM_TOKEN}/sendMessage`
   const response = await axios.post(api, { chat_id: TELEGRAM_CHAT_ID, text: TELEGRAM_MESSAGE })
                           .then(response => response.data)

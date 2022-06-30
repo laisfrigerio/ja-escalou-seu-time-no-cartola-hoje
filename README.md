@@ -89,6 +89,11 @@ E finalmente, execute:
     npm run test:coverage
 ```
 
+## Scheduler
+
+- Using the `cron` npm package. 
+- Using a bash script `.src/run.sh` and crontab in you local machine (Linux / MacOS)
+
 ## Links de referência:
 
 - [Telegram BOT API](https://core.telegram.org/bots/api)

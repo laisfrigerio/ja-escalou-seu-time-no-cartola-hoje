@@ -5,7 +5,7 @@ const { sendMessage } = require('./api/telegram')
 const { canSendMessage } = require('./bot')
 
 async function main () {
-  console.log("DEVE RODAR A CADA 1 MINUTE")
+  console.log("DEVE RODAR A CADA 15 MINUTE")
   const currentDate = moment(moment().format('YYYY-MM-DD HH:mm'))
   console.log(currentDate)
   const payload = await fetchMarketStatus()
@@ -25,5 +25,7 @@ async function main () {
     await sendMessage()
   }
 }
+
+main()
 
 module.exports = main

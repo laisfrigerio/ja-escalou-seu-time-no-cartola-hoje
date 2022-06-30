@@ -21,7 +21,8 @@ function isTheMarketOpen (status) {
 }
 
 function isExactHour (payload, currentDate) {
-  return differenceInHour(payload, currentDate, 48)
+  return differenceInHour(payload, currentDate, 65)
+          || differenceInHour(payload, currentDate, 48)
           || differenceInHour(payload, currentDate, 24)
           || differenceInHour(payload, currentDate, 12)
           || differenceInHour(payload, currentDate, 6)
@@ -32,6 +33,7 @@ function isExactHour (payload, currentDate) {
 function isExactMinute (payload, currentDate) {
   return differenceInMinute(payload, currentDate, 30)
           || differenceInMinute(payload, currentDate, 15)
+          || differenceInMinute(payload, currentDate, 3930)
 }
 
 function isExactPeriod (payload, currentDate) {

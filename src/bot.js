@@ -34,6 +34,9 @@ function isExactMinute(payload, currentDate) {
   return differenceInMinute(payload, currentDate, 45)
     || differenceInMinute(payload, currentDate, 30)
     || differenceInMinute(payload, currentDate, 15)
+    || differenceInMinute(payload, currentDate, 2500)
+    || differenceInMinute(payload, currentDate, 2495)
+    || differenceInMinute(payload, currentDate, 2490)
 }
 
 function isExactPeriod(payload, currentDate) {

@@ -91,90 +91,7 @@ E finalmente, execute:
     npm run test:coverage
 ```
 
-## Run Scheduler
 
-No Linux (MacOS também) temos a ferramenta `crontab`. Ela é responsável por gerenciar e executar comandos agendados. Portanto, no nosso cenário vamos configurar a crontab para rodar a cada 15 minutos.
-
-### Bashscript
-
-Nossa configuração na crontab vai executar um arquivo bashscript (`.sh`). Basicamente, o script vai ser responsável por rodar o conteúdo do nosso arquivo `index.js`: 
-
-`node ./src/index.js`
-
-Precisamos nos atentar e usar o caminho absoluto em que o node está instalado e do nosso arquivo `index.js`.
-
-#### Caminho absoluto (Absolute Path)
-
-1) Para descobrir onde o seu node está instalado, execute no terminal o seguinte comando:
-
-`which node`
-
-No meu caso, o node está no seguinte caminho:
-
-`/home/lais/.nvm/versions/node/v16.15.0/bin/node`
-
-2) Já para encontrar o caminho absoluto da sua pasta `src`, que está dentro da raiz do projeto (`ja-escalou-seu-time-no-cartola-hoje`), você deve:
-
-- Entrar na pasta `src` com o comando `cd` (change directory):
-
-`cd src`
-
-- Executar o comando `pwd` (path working directory name):
-
-`pwd`
-
-No meu caso, este projeto está na seguinte estrutura de pastas (caminho):
-
-`/home/lais/Documents/ja-escalou-seu-time-no-cartola-hoje/src`
-
-#### Ajustando o arquivo `run-cron.sh`
-
-Ajuste seu script `run-cron.sh` com o caminho absoluto do node e de seu arquivo `index.js`:
-
-```sh
-#!/bin/sh
-/home/lais/.nvm/versions/node/v16.15.0/bin/node /home/lais/Documents/ja-escalou-seu-time-no-cartola-hoje/src/index.js
-```
-
-### Configuração Crontab
-
-A configuração tem a seguinte sintaxe:
-
-```
-* * * * * caminho-absoluto-do-seu-script.sh
-```
-
-Basicamente, da esquerda para direita, cada asterísco representa um período:
-
-[minuto] [hora] [dia do mês] [mês] [dia da semana]
-
-Quando você usa somente `* * * * *`, seu script vai ser executado a cada 1 minuto.
-
-No nosso caso, a cron deve ser executada a cada 15 minutos:
-
-```
-*/15 * * * * caminho-absoluto-do-seu-script.sh
-```
-
-Para salvar esta configuração na crontab, você deve executar no seu terminal:
-
-`crontab -e`
-
-Salve no edito que abriu no seu terminal, a configuração de período de execução seguido do caminho absoluto do script `run-cron.sh`:
-
-```sh
-#!/bin/sh
-*/15 * * * * /home/lais/Documents/ja-escalou-seu-time-no-cartola-hoje/src/run-cron.sh
-```
-
-Você pode também criar um arquivo `log.txt` com o resultado de cada `console.log`:
-
-```sh
-#!/bin/sh
-*/15 * * * * /home/lais/Documents/ja-escalou-seu-time-no-cartola-hoje/src/run-cron.sh > /home/lais/Documents/ja-escalou-seu-time-no-cartola-hoje/src/log.txt
-```
-
-**Obs:** Não esqueça do caminho absoluto para o arquivo de log `.txt` tbm ;)
 
 ## Links de referência:
 
@@ -184,6 +101,8 @@ Você pode também criar um arquivo `log.txt` com o resultado de cada `console.l
 - [How to obtain the Chat ID](https://stackoverflow.com/questions/33858927/how-to-obtain-the-chat-id-of-a-private-telegram-channel)
 - [Making a Telegram BOT](https://www.sohamkamani.com/blog/2016/09/21/making-a-telegram-bot/#:~:text=Go%20to%20the%20telegram%20app%20on%20your%20phone%20and%E2%80%A6&text=Click%20on%20or%20type%20%2Fnewbot,to%20be%20a%20unique%20name.)
 - [How to mock axios requests in jest](https://vhudyma-blog.eu/3-ways-to-mock-axios-in-jest/)
+- [Crontab Generator](https://crontab.guru/)
+- [How to run Cron jobs Every 5, 10 or 15 minutes](https://linuxize.com/post/cron-jobs-every-5-10-15-minutes/)
 
 ## 👩 Author
 

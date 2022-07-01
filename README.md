@@ -111,3 +111,7 @@ E finalmente, execute:
 ## 📄 License
 
 This project is licensed under the MIT License - see the LICENSE.md file for details
+
+Como rodar crontab no Linux
+Como identificar o caminho absoluto do node
+Como tornar minhas variaveis de ambiente disponiveis para o crontab

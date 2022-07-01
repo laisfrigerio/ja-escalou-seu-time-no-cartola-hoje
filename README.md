@@ -156,11 +156,22 @@ No nosso caso, a cron deve ser executada a cada 15 minutos:
 */15 * * * * caminho-absoluto-do-seu-script.sh
 ```
 
-Além do mais, você pode salvar o conteúdo dos `console.log` em um arquivo `.txt`, assim:
+Para salvar esta configuração na crontab, você deve executar no seu terminal:
+
+`crontab -e`
+
+Salve no edito que abriu no seu terminal, a configuração de período de execução seguido do caminho absoluto do script `run-cron.sh`:
 
 ```sh
 #!/bin/sh
-/home/lais/.nvm/versions/node/v16.15.0/bin/node /home/lais/Documents/ja-escalou-seu-time-no-cartola-hoje/src/index.js > /home/lais/Documents/ja-escalou-seu-time-no-cartola-hoje/src/log.txt
+*/15 * * * * /home/lais/Documents/ja-escalou-seu-time-no-cartola-hoje/src/run-cron.sh
+```
+
+Você pode também criar um arquivo `log.txt` com o resultado de cada `console.log`:
+
+```sh
+#!/bin/sh
+*/15 * * * * /home/lais/Documents/ja-escalou-seu-time-no-cartola-hoje/src/run-cron.sh > /home/lais/Documents/ja-escalou-seu-time-no-cartola-hoje/src/log.txt
 ```
 
 **Obs:** Não esqueça do caminho absoluto para o arquivo de log `.txt` tbm ;)

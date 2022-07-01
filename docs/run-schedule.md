@@ -55,6 +55,12 @@ Ajuste seu script `run-cron.sh` com o caminho absoluto do node e do seu arquivo 
 /home/lais/.nvm/versions/node/v16.15.0/bin/node /home/lais/Documents/ja-escalou-seu-time-no-cartola-hoje/src/index.js
 ```
 
+Lembre-se que você deve tornar seu arquivo `run-cron.sh` executável:
+
+```console
+lais@lais:~$ chmod -x run-cron.sh
+```
+
 ## Configuração Crontab
 
 A configuração tem a seguinte sintaxe:

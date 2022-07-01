@@ -91,7 +91,11 @@ E finalmente, execute:
     npm run test:coverage
 ```
 
+## Crontab (agendamento)
 
+Devido a série de configuração e execuções de comandos, deixe essa documentação em um README.md separado. 
+
+- [Crontab configuration](./docs/run-schedule.md)
 
 ## Links de referência:
 

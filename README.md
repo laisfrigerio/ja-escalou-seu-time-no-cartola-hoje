@@ -93,7 +93,7 @@ E finalmente, execute:
 
 ## Crontab (agendamento)
 
-Devido a série de configuração e execuções de comandos, deixe essa documentação em um README.md separado. 
+Devido a série de configurações e execuções de comandos, deixei a documentação deste assunto em um README.md separado. 
 
 - [Crontab configuration](./docs/run-schedule.md)
 
@@ -116,7 +116,3 @@ Devido a série de configuração e execuções de comandos, deixe essa document
 ## 📄 License
 
 This project is licensed under the MIT License - see the LICENSE.md file for details
-
-Como rodar crontab no Linux
-Como identificar o caminho absoluto do node
-Como tornar minhas variaveis de ambiente disponiveis para o crontab

@@ -95,7 +95,13 @@ E finalmente, execute:
 
 Devido a série de configurações e execuções de comandos, deixei a documentação deste assunto em um README.md separado. 
 
-- [Crontab configuration](./docs/run-schedule.md)
+- [Crontab configuration](./docs/crontab.md)
+
+## Variáveis de ambiente
+
+Ao adicionar seu script para rodar via `cron`, é necessário deixar as variáveis do arquivo `.env` acessíveis globamente. Para mais informações, leio o conteúdo a seguir:
+
+- [Variáveis de ambiente](./docs/enviroment-variables.md)
 
 ## Links de referência:
 

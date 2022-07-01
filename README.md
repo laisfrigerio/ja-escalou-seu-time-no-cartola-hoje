@@ -26,7 +26,7 @@ Sua pontuação é gerada a partir da performance dos jogadores em campo.
 
 De acordo com a posição de cada atleta (goleiro, zagueiro, lateral, meio-campo, atacante, técnico), existem regras de pontuação.
 
-Depois de escalado seu time, é só torcer para seus atletas mitarem na rodada.
+Depois de escalado seu time é só torcer para seus atletas mitarem na rodada.
 
 ## Objetivo do BOT
 
@@ -50,6 +50,7 @@ Inicialmente a ideia é:
     - 6 horas antes do fechamento;
     - 3 horas antes do fechamento;
     - 1 horas antes do fechamento;
+    - 45 minutos antes do fechamento;
     - 30 minutos antes do fechamento; e
     - 15 minutos antes do fechamento;
 
@@ -60,6 +61,7 @@ Inicialmente a ideia é:
 - Jest para os testes de unidade e integração (100% of coverage): `^28.1.1`
 - API Cartola
 - Integração com Telegram
+- crontab (Linux)
 
 ## Run
 
@@ -67,8 +69,8 @@ Antes de rodar o project, você deve:
 
 - Criar seu bot no telegram;
 - Criar um grupo no telegram;
-- Fazer o link do bot com o grupo criado;
-- Pegar o valor do `chat_id` do grupo criado;
+- Nas configurações do grupo criado, você deve associá-lo ao Bot;
+- Pegar um valor chamado `chat_id` do grupo criado;
 
 E, por fim, você deve:
 
@@ -89,10 +91,79 @@ E finalmente, execute:
     npm run test:coverage
 ```
 
-## Scheduler
+## Run Scheduler
 
-- Using the `cron` npm package. 
-- Using a bash script `.src/run.sh` and crontab in you local machine (Linux / MacOS)
+No Linux (MacOS também) temos a ferramenta `crontab`. Ela é responsável por gerenciar e executar comandos agendados. Portanto, no nosso cenário vamos configurar a crontab para rodar a cada 15 minutos.
+
+### Bashscript
+
+Nossa configuração na crontab vai executar um arquivo bashscript (`.sh`). Basicamente, o script vai ser responsável por rodar o conteúdo do nosso arquivo `index.js`: 
+
+`node ./src/index.js`
+
+Precisamos nos atentar e usar o caminho absoluto em que o node está instalado e do nosso arquivo `index.js`.
+
+#### Caminho absoluto (Absolute Path)
+
+1) Para descobrir onde o seu node está instalado, execute no terminal o seguinte comando:
+
+`which node`
+
+No meu caso, o node está no seguinte caminho:
+
+`/home/lais/.nvm/versions/node/v16.15.0/bin/node`
+
+2) Já para encontrar o caminho absoluto da sua pasta `src`, que está dentro da raiz do projeto (`ja-escalou-seu-time-no-cartola-hoje`), você deve:
+
+- Entrar na pasta `src` com o comando `cd` (change directory):
+
+`cd src`
+
+- Executar o comando `pwd` (path working directory name):
+
+`pwd`
+
+No meu caso, este projeto está na seguinte estrutura de pastas (caminho):
+
+`/home/lais/Documents/ja-escalou-seu-time-no-cartola-hoje/src`
+
+#### Ajustando o arquivo `run-cron.sh`
+
+Ajuste seu script `run-cron.sh` com o caminho absoluto do node e de seu arquivo `index.js`:
+
+```sh
+#!/bin/sh
+/home/lais/.nvm/versions/node/v16.15.0/bin/node /home/lais/Documents/ja-escalou-seu-time-no-cartola-hoje/src/index.js
+```
+
+### Configuração Crontab
+
+A configuração tem a seguinte sintaxe:
+
+```
+* * * * * caminho-absoluto-do-seu-script.sh
+```
+
+Basicamente, da esquerda para direita, cada asterísco representa um período:
+
+[minuto] [hora] [dia do mês] [mês] [dia da semana]
+
+Quando você usa somente `* * * * *`, seu script vai ser executado a cada 1 minuto.
+
+No nosso caso, a cron deve ser executada a cada 15 minutos:
+
+```
+*/15 * * * * caminho-absoluto-do-seu-script.sh
+```
+
+Além do mais, você pode salvar o conteúdo dos `console.log` em um arquivo `.txt`, assim:
+
+```sh
+#!/bin/sh
+/home/lais/.nvm/versions/node/v16.15.0/bin/node /home/lais/Documents/ja-escalou-seu-time-no-cartola-hoje/src/index.js > /home/lais/Documents/ja-escalou-seu-time-no-cartola-hoje/src/log.txt
+```
+
+**Obs:** Não esqueça do caminho absoluto para o arquivo de log `.txt` tbm ;)
 
 ## Links de referência:
 

@@ -26,7 +26,7 @@ Sua pontuação é gerada a partir da performance dos jogadores em campo.
 
 De acordo com a posição de cada atleta (goleiro, zagueiro, lateral, meio-campo, atacante, técnico), existem regras de pontuação.
 
-Depois de escalado seu time, é só torcer para seus atletas mitarem na rodada.
+Depois de escalado seu time é só torcer para seus atletas mitarem na rodada.
 
 ## Objetivo do BOT
 
@@ -50,6 +50,7 @@ Inicialmente a ideia é:
     - 6 horas antes do fechamento;
     - 3 horas antes do fechamento;
     - 1 horas antes do fechamento;
+    - 45 minutos antes do fechamento;
     - 30 minutos antes do fechamento; e
     - 15 minutos antes do fechamento;
 
@@ -60,6 +61,7 @@ Inicialmente a ideia é:
 - Jest para os testes de unidade e integração (100% of coverage): `^28.1.1`
 - API Cartola
 - Integração com Telegram
+- crontab (Linux)
 
 ## Run
 
@@ -67,8 +69,8 @@ Antes de rodar o project, você deve:
 
 - Criar seu bot no telegram;
 - Criar um grupo no telegram;
-- Fazer o link do bot com o grupo criado;
-- Pegar o valor do `chat_id` do grupo criado;
+- Nas configurações do grupo criado, você deve associá-lo ao Bot;
+- Pegar um valor chamado `chat_id` do grupo criado;
 
 E, por fim, você deve:
 
@@ -89,6 +91,12 @@ E finalmente, execute:
     npm run test:coverage
 ```
 
+## Crontab (agendamento)
+
+Devido a série de configurações e execuções de comandos, deixei a documentação deste assunto em um README.md separado. 
+
+- [Crontab configuration](./docs/run-schedule.md)
+
 ## Links de referência:
 
 - [Telegram BOT API](https://core.telegram.org/bots/api)
@@ -97,6 +105,8 @@ E finalmente, execute:
 - [How to obtain the Chat ID](https://stackoverflow.com/questions/33858927/how-to-obtain-the-chat-id-of-a-private-telegram-channel)
 - [Making a Telegram BOT](https://www.sohamkamani.com/blog/2016/09/21/making-a-telegram-bot/#:~:text=Go%20to%20the%20telegram%20app%20on%20your%20phone%20and%E2%80%A6&text=Click%20on%20or%20type%20%2Fnewbot,to%20be%20a%20unique%20name.)
 - [How to mock axios requests in jest](https://vhudyma-blog.eu/3-ways-to-mock-axios-in-jest/)
+- [Crontab Generator](https://crontab.guru/)
+- [How to run Cron jobs Every 5, 10 or 15 minutes](https://linuxize.com/post/cron-jobs-every-5-10-15-minutes/)
 
 ## 👩 Author
 

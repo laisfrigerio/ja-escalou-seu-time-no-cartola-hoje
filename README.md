@@ -26,9 +26,11 @@ Depois de escalado é só torcer para seus atletas mitarem na rodada.
 
 Este projeto é um BOT: Basicamente ele verifica quanto tempo falta para o mercado fechar (eu busco essa informação de uma API pública no Cartola) e, dependendo do período, o bot envia uma mensagem para um canal do TELEGRAM como um lembrete.
 
+NUNCA MAIS esqueça de escalar seu time no cartola (a não ser que você continue procrastinando depois de 90985948594859494 mil avisos rsss)
+
 ## Motivação
 
-Este projeto surgiu de uma necessidade pessoal: mesmo recebendo e-mail para escalar meu time na Rodada, eventualmente eu acabo esquecendo.
+Este projeto surgiu de uma necessidade pessoal: mesmo recebendo e-mail para escalar meu time na rodada, eventualmente eu acabo esquecendo.
 
 A ideia é o BOT me lembrar e não mais esquecer de escalar meu time no Cartola.
 

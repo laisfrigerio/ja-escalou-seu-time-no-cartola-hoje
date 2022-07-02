@@ -48,14 +48,7 @@ lais@lais:~$ /home/lais/Documents/ja-escalou-seu-time-no-cartola-hoje/src
 
 ## Ajustando o arquivo `run-cron.sh`
 
-Ajuste seu script `run-cron.sh` com o caminho absoluto do node e do seu arquivo `index.js`:
-
-```sh
-#!/bin/sh
-/home/lais/.nvm/versions/node/v16.15.0/bin/node /home/lais/Documents/ja-escalou-seu-time-no-cartola-hoje/src/index.js
-```
-
-Lembre-se que você deve tornar seu arquivo `run-cron.sh` executável:
+Você precisa tornar seu arquivo `run-cron.sh` executável:
 
 ```console
 lais@lais:~$ chmod -x run-cron.sh
@@ -87,12 +80,14 @@ Para salvar esta configuração na crontab, você deve executar no seu terminal:
 lais@lais:~$ crontab -e
 ```
 
-Salve no edito que abriu no seu terminal, a configuração de período de execução seguido do caminho absoluto do script `run-cron.sh`:
+Um editor (nano, vim, visual studio) vai abrir. Então, você precisa ajustar o período de execução e do caminho absoluto do script `run-cron.sh`:
 
 ```sh
 #!/bin/sh
 */15 * * * * /home/lais/Documents/ja-escalou-seu-time-no-cartola-hoje/src/run-cron.sh
 ```
+
+Salve o arquivo!
 
 Você pode também criar um arquivo `log.txt` e salvar o resultado de cada `console.log`:
 

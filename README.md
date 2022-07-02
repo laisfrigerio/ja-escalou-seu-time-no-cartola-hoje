@@ -18,31 +18,25 @@ Não deixa para última hora! ~~como eu~~
 
 ## O que é o Cartola?
 
-É uma fantasy game desenvolvido pelo time tech da Globo.
+O Cartola é um fantasy game desenvolvido e mantido pela Globo. É um jogo "fictício" em que as pessoas montam seus times com jogadores de futebol da vida real. Você escala seu time a cada rodada e a sua pontuação é gerada de acordo com o rendimento e performance de cada atleta em campo.
 
-A ideia do jogo é escalar um time com base em todos os atletas/técnicos que fazem parte do Campeonato Brasileiro da séria A (Brasileirão).
+Depois de escalado é só torcer para seus atletas mitarem na rodada.
 
-Sua pontuação é gerada a partir da performance dos jogadores em campo.
+## Objetivo
 
-De acordo com a posição de cada atleta (goleiro, zagueiro, lateral, meio-campo, atacante, técnico), existem regras de pontuação.
+Este projeto é um BOT: Basicamente ele verifica quanto tempo falta para o mercado fechar (eu busco essa informação de uma API pública no Cartola) e, dependendo do período, o bot envia uma mensagem para um canal do TELEGRAM como um lembrete.
 
-Depois de escalado seu time é só torcer para seus atletas mitarem na rodada.
-
-## Objetivo do BOT
-
-Acessar uma API pública do cartola, coletar informação, como status do mercado (aberto, fechado) e data de fechamento (dia, horário, minuto) e enviar uma mensagem à um canal do Telegram para lembretar os cartoleiros de escalarem seus times.
+NUNCA MAIS esqueça de escalar seu time no cartola (a não ser que você continue procrastinando depois de 90985948594859494 mil avisos rsss)
 
 ## Motivação
 
-Este projeto surgiu de uma necessidade pessoal: mesmo recebendo e-mail para escalar meu time na Rodada, eventualmente eu acabo esquecendo.
+Este projeto surgiu de uma necessidade pessoal: mesmo recebendo e-mail para escalar meu time na rodada, eventualmente eu acabo esquecendo.
 
-A ideia é criar um BOT para me lembrar e não mais esquecer de escalar meu time no Cartola.
+A ideia é o BOT me lembrar e não mais esquecer de escalar meu time no Cartola.
 
 ## Regras de envio do lembrete
 
-Inicialmente a ideia é:
-
-- Enviar lembretes apenas no dia de fechamento do mercado;
+- Enviar lembretes apenas se o mercado estiver aberto; e
 - Períodos de envio:
     - 48 horas antes do fechamento;
     - 24 horas antes do fechamento;
@@ -95,11 +89,11 @@ E finalmente, execute:
 
 Devido a série de configurações e execuções de comandos, deixei a documentação deste assunto em um README.md separado. 
 
-- [Crontab configuration](./docs/crontab.md)
+- [Configuração Crontab](./docs/crontab.md)
 
 ## Variáveis de ambiente
 
-Ao adicionar seu script para rodar via `cron`, é necessário deixar as variáveis do arquivo `.env` acessíveis globamente. Para mais informações, leio o conteúdo a seguir:
+Ao adicionar seu script para rodar via `crontab`, é necessário deixar as variáveis do arquivo `.env` acessíveis globamente. Para mais informações, leia o conteúdo a seguir:
 
 - [Variáveis de ambiente](./docs/enviroment-variables.md)
 

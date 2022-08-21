@@ -1,5 +1,7 @@
 # :copyright: E aí, cartoleiro, já escalou seu time no Cartola hoje?
 
+![Testes de Unidade e Integração](https://github.com/laisfrigerio/ja-escalou-seu-time-no-cartola-hoje/actions/workflows/test.js.yml/badge.svg)
+
 Não deixa para última hora! ~~como eu~~
 
 [Entre aqui](https://t.me/+n8f3TlxXJ04wMThh) no grupo do Telegram agora mesmo ;)
